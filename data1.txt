@@ -1,0 +1,22 @@
+# 1. Create repo locally
+mkdir my-project && cd $_
+git init
+
+# 2. Make folders
+mkdir -p docs/{figures} src/my_project notebooks tests config data/{raw,interim,processed} results/{models,metrics}
+
+# 3. Add a Python package example
+touch src/my_project/__init__.py
+
+# 4. Add a sensible .gitignore (Python example)
+curl -o .gitignore https://raw.githubusercontent.com/github/gitignore/main/Python.gitignore
+
+# 5. Track large raw data with Git LFS
+git lfs install
+git lfs track "data/raw/*"
+
+# 6. Commit & push
+git add .
+git commit -m "Initial repo structure"
+git remote add origin https://github.com/<user>/my-project.git
+git push -u origin main
